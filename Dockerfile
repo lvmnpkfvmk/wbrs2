@@ -3,12 +3,6 @@ FROM rust:1.80-bullseye as builder
 
 WORKDIR /app
 
-# Accept the build argument
-ARG DATABASE_URL
-
-# Make sure to use the ARG in ENV
-ENV DATABASE_URL=$DATABASE_URL
-
 # Copy the source code
 COPY . .
 
@@ -17,7 +11,9 @@ RUN cargo build --release
 
 
 # Production stage
-FROM debian:buster-slim
+FROM debian:bullseye
+ARG DATABASE_URL
+ENV DATABASE_URL=$DATABASE_URL
 
 WORKDIR /usr/local/bin
 
