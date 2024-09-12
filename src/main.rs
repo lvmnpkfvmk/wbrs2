@@ -1,8 +1,8 @@
 use axum::http::{header::CONTENT_TYPE, Method};
 use l0::route::{create_router, AppState};
 use sqlx::postgres::PgPoolOptions;
-use tokio::sync::Mutex;
 use std::{collections::HashMap, sync::Arc};
+use tokio::sync::Mutex;
 use tower_http::cors::{Any, CorsLayer};
 
 #[tokio::main]
