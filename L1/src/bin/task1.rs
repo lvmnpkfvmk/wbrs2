@@ -12,15 +12,9 @@ impl Action for Person {
     }
 }
 
-#[cfg(test)]
-mod tests {
-    use super::*;
-
-    #[test]
-    fn test_person_say() {
-        let person = Person {
-            name: String::from("Alice"),
-        };
-        person.say();
-    }
+fn main() {
+    let person = Person {
+        name: String::from("Alice"),
+    };
+    person.say();
 }
